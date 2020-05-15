@@ -42,7 +42,7 @@ class ProjectsController < ApplicationController
 
 
     def project_params
-        params.require(:project).permit(:user_id, :name, :description, :like)
+        params.require(:project).permit(:user_id, :name, :description, :like, :img, :link)
     end
 
 
