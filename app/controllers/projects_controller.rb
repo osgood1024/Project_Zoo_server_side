@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
+    skip_before_action :verify_authenticity_token
 
-    before_action :find_project, only: [:show, :edit, :update, :destroy]
+    # before_action :find_project, only: [:show, :edit, :update, :destroy]
 
     def index
         projects=Project.all
@@ -8,6 +9,7 @@ class ProjectsController < ApplicationController
     end
 
     def show
+        project =Project.find(params[:id])
         render json: project
     end
 
@@ -18,16 +20,21 @@ class ProjectsController < ApplicationController
     end
 
     def edit
+        project =Project.find(params[:id])
+
         render json: project
     end
 
     def update
+        project =Project.find(params[:id])
         project.update(project_params)
         render json: project
     end
 
 
     def destroy
+        project =Project.find(params[:id])
+
         project.destroy
         render json: project
     end
@@ -36,15 +43,9 @@ class ProjectsController < ApplicationController
 
     private
 
-    def find_project
-        project=Project.find(params[:id])
-    end
-
-
     def project_params
-        params.require(:project).permit(:user_id, :name, :description, :like, :img, :link)
+        params.require(:project).permit(:user_id, :name, :description, :like, :image , :link)
     end
-
 
 
 
