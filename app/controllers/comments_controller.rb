@@ -1,12 +1,12 @@
 class CommentsController < ApplicationController
 
-    before_action :find_comment, only: [:show, :edit, :update, :destroy]
     def index
         comments=Comment.all
         render json: comments
     end
 
     def show
+        comment=Comment.find(params[:id])
         render json: comment
     end
 
@@ -16,26 +16,25 @@ class CommentsController < ApplicationController
     end
 
     def edit
+        comment=Comment.find(params[:id])
         render json: comment
     end
 
     def update
+        comment=Comment.find(params[:id])
         comment.update(comment_params)
         render json: comment
     end
 
 
     def destroy
+        comment=Comment.find(params[:id])
         comment.destroy
         render json: comment
     end
 
 
     private
-
-    def find_comment
-        comment=Comment.find(params[:id])
-    end
 
     def comment_params
         params.require(:comment).permit(:user_id, :project_id, :content)
