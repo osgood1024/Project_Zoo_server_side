@@ -21,7 +21,6 @@ class ProjectsController < ApplicationController
 
     def edit
         project =Project.find(params[:id])
-
         render json: project
     end
 
@@ -34,7 +33,6 @@ class ProjectsController < ApplicationController
 
     def destroy
         project =Project.find(params[:id])
-
         project.destroy
         render json: project
     end

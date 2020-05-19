@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-
-    before_action :find_user, only: [:show, :edit, :update, :destroy]
+    skip_before_action :verify_authenticity_token
 
     def index
         users=User.all
@@ -8,6 +7,7 @@ class UsersController < ApplicationController
     end
 
     def show
+        user=User.find(params[:id])
         render json: user
     end
 
@@ -18,16 +18,19 @@ class UsersController < ApplicationController
     end
 
     def edit
+        user=User.find(params[:id])
         render json: user
     end
 
     def update
+        user=User.find(params[:id])
         user.update(user_params)
         render json: user
     end
 
 
     def destroy
+        user=User.find(params[:id])
         user.destroy
         render json: user
     end
@@ -36,9 +39,7 @@ class UsersController < ApplicationController
 
     private
 
-    def find_user
-        user=User.find(params[:id])
-    end
+   
 
 
     def user_params

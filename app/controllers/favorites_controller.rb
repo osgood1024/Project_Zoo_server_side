@@ -1,6 +1,6 @@
 class FavoritesController < ApplicationController
 
-#  before_action :find_favorite, only: [:show, :edit, :update, :destroy]
+    skip_before_action :verify_authenticity_token
 
     def index
         favorites=Favorite.all
@@ -20,6 +20,7 @@ class FavoritesController < ApplicationController
 
     def edit
         favorite=Favorite.find(params[:id])
+
         render json: favorite
     end
 
