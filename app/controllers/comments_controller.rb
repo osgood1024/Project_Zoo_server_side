@@ -4,12 +4,12 @@ class CommentsController < ApplicationController
 
     def index
         comments=Comment.all
-        render json: comments
+        render json: comments, include: ['project', 'user']
     end
 
     def show
         comment=Comment.find(params[:id])
-        render json: comment
+        render json: comment, include: ['project', 'user']
     end
 
     def create
