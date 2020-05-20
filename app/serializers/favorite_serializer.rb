@@ -1,5 +1,5 @@
 class FavoriteSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id , :user_id , :project_id
   
   belongs_to :user
   belongs_to  :project

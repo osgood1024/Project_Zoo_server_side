@@ -9,7 +9,7 @@ class FavoritesController < ApplicationController
 
     def show 
         favorite=Favorite.find(params[:id])
-        render json: favorite, include: ['project', 'user']
+        render json: favorite 
     end
 
 
@@ -27,7 +27,7 @@ class FavoritesController < ApplicationController
     def update
         favorite=Favorite.find(params[:id])
         favorite.update(favorite_params)
-        render json: favorite
+        render json: favorite 
     end
 
 
