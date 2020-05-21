@@ -15,14 +15,12 @@ class CommentsController < ApplicationController
     def create
         comment=Comment.create(comment_params)
 
+        if comment.valid?
         render json: comment
-        # if comment.valid?
-        #     comment.save
-        # render json: comment
-        # else 
-        #     flash[:errors] = comment.errors.full_messages
-           
-        # end
+        else 
+            flash[:errors] = comment.errors.full_messages
+            render jason: comment
+        end
 
     end
 

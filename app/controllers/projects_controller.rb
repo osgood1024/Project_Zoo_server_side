@@ -16,7 +16,14 @@ class ProjectsController < ApplicationController
 
     def create
         project=Project.create(project_params)
+
+        if project.valid?
         render json: project
+        else
+            flash[:errors] = project.errors.full_messages
+            render json: project
+        end
+
     end
 
     def edit

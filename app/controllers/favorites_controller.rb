@@ -15,7 +15,13 @@ class FavoritesController < ApplicationController
 
     def create
         favorite=Favorite.create(favorite_params)
+        if favorite.valid?
         render json: favorite
+        else
+            flash[:errors] = favorite.errors.full_messages
+            render json: favorite
+        end
+
     end
 
     def edit

@@ -4,9 +4,8 @@ class Favorite < ApplicationRecord
 
 
     # validates_uniqueness_of :project, :scope => :id
-
-    # validates :name, presence: true, uniqueness: true
-
+    # validates :project_id, presence: true, uniqueness: true
+    validates :project_id, uniqueness: true
 
 end
 
