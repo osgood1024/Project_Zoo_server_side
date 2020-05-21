@@ -31,3 +31,18 @@
 
 en:
   hello: "Hello world"
+
+
+en:
+  errors:
+    # format to use in full error messages.
+    format: "%{message}"
+
+# en:
+#   activerecord:
+#     errors:
+#       models:
+#         project:
+#           attributes:
+#             firstname:
+#               blank: "Please fill in your %{attribute}"
