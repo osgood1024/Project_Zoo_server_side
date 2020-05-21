@@ -16,10 +16,13 @@ class CommentsController < ApplicationController
         comment=Comment.create(comment_params)
 
         if comment.valid?
-        render json: comment
+            render json: comment
         else 
-            flash[:errors] = comment.errors.full_messages
-            render jason: comment
+            message={
+                status: 490,
+                errors: comment.errors.full_messages
+            }
+            render json: message
         end
 
     end

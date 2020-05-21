@@ -20,8 +20,11 @@ class ProjectsController < ApplicationController
         if project.valid?
         render json: project
         else
-            flash[:errors] = project.errors.full_messages
-            render json: project
+            message={
+                status: 490,
+                errors: project.errors.full_messages
+            }
+            render json: message
         end
 
     end

@@ -18,8 +18,11 @@ class FavoritesController < ApplicationController
         if favorite.valid?
         render json: favorite
         else
-            flash[:errors] = favorite.errors.full_messages
-            render json: favorite
+            message={
+                status: 490,
+                errors: favorite.errors.full_messages
+            }
+            render json: message
         end
 
     end
