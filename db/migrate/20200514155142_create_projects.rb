@@ -7,6 +7,7 @@ class CreateProjects < ActiveRecord::Migration[6.0]
       t.string :description
       t.string :image
       t.string :link
+      t.string :category
 
       t.timestamps
     end

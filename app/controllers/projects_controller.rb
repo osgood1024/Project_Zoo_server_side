@@ -1,7 +1,6 @@
 class ProjectsController < ApplicationController
     skip_before_action :verify_authenticity_token
 
-    # before_action :find_project, only: [:show, :edit, :update, :destroy]
 
     def index
         projects=Project.all
@@ -52,7 +51,7 @@ class ProjectsController < ApplicationController
     private
 
     def project_params
-        params.require(:project).permit(:user_id, :name, :description, :like, :image , :link)
+        params.require(:project).permit(:user_id, :name, :description, :like, :image , :link, :category)
     end
 
 
