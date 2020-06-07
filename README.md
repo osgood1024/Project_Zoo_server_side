@@ -1,6 +1,6 @@
 
 
-<p align="center">
+<p align = "center">
   <h1>Project Zoo </h1>
 </p>
 
